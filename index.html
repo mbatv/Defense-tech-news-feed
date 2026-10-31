@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Defense Tech × Capital Signals</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111113;
+    --surface-hover: #18181b;
+    --border: #1e1e22;
+    --border-hover: #2a2a30;
+    --text-primary: #e4e4e7;
+    --text-secondary: #71717a;
+    --text-muted: #52525b;
+    --accent: #c8aa6e;
+    --accent-dim: rgba(200, 170, 110, 0.08);
+    --accent-border: rgba(200, 170, 110, 0.15);
+    --tag-bg: #1a1a1f;
+    --tag-text: #8b8b96;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 28px 20px 40px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .header-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .header-meta span {
+    margin-right: 12px;
+  }
+
+  .geo-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .geo-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .feed {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 0;
+  }
+
+  .item:hover {
+    background: var(--surface);
+    border-color: var(--border);
+  }
+
+  .item:hover .item-title {
+    color: #fff;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+  }
+
+  .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .item-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--text-primary);
+    transition: color 0.15s ease;
+    margin-bottom: 8px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: var(--tag-text);
+    background: var(--tag-bg);
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+  }
+
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Notion embed optimization */
+  @media (max-width: 500px) {
+    .container { padding: 16px 12px 32px; }
+    .item { padding: 12px; }
+    .item-title { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-title">Defense Tech × Capital Signals</div>
+    <div class="header-meta">
+      <span>Last 60 days</span>
+      <span>·</span>
+      <span>15 items</span>
+      <span>·</span>
+      <span>updated Oct 31, 11:38 UTC</span>
+    </div>
+    <div class="geo-tags">
+      <span class="geo-tag">UK</span>
+      <span class="geo-tag">EU</span>
+      <span class="geo-tag">US</span>
+      <span class="geo-tag">Ukraine</span>
+    </div>
+  </div>
+
+  <div class="feed">
+    
+        <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPenZiWG9PdU84aWpQV0RTSnNra2s3dTFzMDFYd19qbGROcFBaamRwNGlYV2VXRnZQOTFIVnY3UTZWd3FuUWFyVnN3RWR2elhaS0F1X1BUY2MzX180Mm00V2xtMm1RcW0yNHo1STJxMENBX18yYlBfejVuNGtKU2JoRTFQdlZISkdxRUxOOHJjX0x2STZ3bWJGQmRPQXVkb0RE?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.0s">
+            <div class="item-header">
+                <span class="source">Военное дело</span>
+                <span class="date">8h ago</span>
+            </div>
+            <h3 class="item-title">Russia&#x27;s Drone Tech Surpasses NATO and Ukraine, Says Expert - Военное дело</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Ukraine</span><span class="tag">EU Policy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQeW0zVzBYRjZoY1JfU1dJeUVocDNqY2RfSHJYZU9MelJvQjJIYVR1MGhCRHlvc3BDYksxY0cxZlB1TmlvaDVuN3BVVG54Z1Nrb0pZMGRjT1R4YTlGUTBZSktmYl9xZXY2THlRU0FvTXExbVk3S3B0cU1QdlpxSnhrYVd3NS1EWnZYUmVKOXI5OEZvRTRtRmpFZlVjMFNpdw?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.04s">
+            <div class="item-header">
+                <span class="source">Vietnam.vn</span>
+                <span class="date">22h ago</span>
+            </div>
+            <h3 class="item-title">The EU is building two UAV technology centers, leveraging experience from Ukraine. - Vietnam.vn</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Ukraine</span><span class="tag">EU Policy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQczRQdjZiT3B4RE1LNVI3eWNKbWxoUTFjZkU1akZXSkwyay1zWTM5TTJ4eGM3UWd5Y0lqVVVOYnlRVFdQN09WRWNpem1yTk45TVRJZy1IZFBCYXZZRUo1ZmotNnJSLTRTVmNjaDZFbzJkUkw4czd4b0thcmg2bWp0U0lnRnVlSUJINXQxMUhwTncxMjNRWnotaXJsSi1haFRqbjgtQ3lqQ2JzUHRIR0Jnd1VWaVhfUDQ?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.08s">
+            <div class="item-header">
+                <span class="source">Defence Industry Europe</span>
+                <span class="date">Yesterday</span>
+            </div>
+            <h3 class="item-title">Ukraine’s defence ministry says drones destroyed or disabled 1,039 Russian military boats - Defence Industry Europe</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Ukraine</span><span class="tag">Regulation</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxNbGdnUGRxUzlWMTFQcUVOd1p1b19jNnU4VWctSXN3R1RYcVp4TmhBTXFRRXlPaGp5NnRiU3RrSmZsclZUU0FlTkdKOWFCSHU5RWwxUmtLV2NBZ3lWOG9lVmZpWTd4R1FDQS1yZTZEYmxWTDgwaDViRXJFdC02TjhMTjRhRTZJMW9oRVhyMmdmVk00YVJ0WExaNTBaeWpaX2JOQXc0ejJLWW1WQXl4VjJz?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.12s">
+            <div class="item-header">
+                <span class="source">Defensemirror.com</span>
+                <span class="date">Yesterday</span>
+            </div>
+            <h3 class="item-title">EU Opens $21.3B Defense Loan Round, Pushes Joint Procurement with Ukraine - Defensemirror.com</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">EU Policy</span><span class="tag">Regulation</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxORWU5b29ORTE3WWZYbERuYjMxbkVwRlBVT051WmttWFdfMG1MN0RZSTU1cHB2YTFsT0RHbGFQRklydURTSWlxd1RheEp4VGxlbzlrY0NCUDhoQ0s5VWw1WG5vTjktaWhjZ2VkdFNZcFMtMjRVbDNUcFR1RXpFTC1ncG94OW1pMGJZYkh6ME8wM2dndGJkeGsxYVF1RXJwaDVrdm4yVzhzRk4zN0lxNEIwZHF0MmtsNlQwLW4yaE1uZmZRN1ozc1NHcTloX0ZOTVFQYWM2bmdlbGxQdw?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.16s">
+            <div class="item-header">
+                <span class="source">Reuters</span>
+                <span class="date">Yesterday</span>
+            </div>
+            <h3 class="item-title">North Korea&#x27;s Kim urges drone dominance, greater military AI use amid border tensions - Reuters</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Regulation</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxOdVZaUk90OFdVMlczaEZTemROTWVzMzdMT3F0Y21rUU9SWVNoS0U4RDZsN3d3OFJkcUFEbXBiQS02VVM5czh0WDVEekxRdk0yQ1YzeUhSZVcxbms0dWdlbGNoX0NiLWpCci0wZXZ0ekRjM0tVeVNDR0N5Y3RDTGtRdThhYjJqelhmTEdyTzRvb0NjYUptT0NBN3MyU09PcnVXR3Y3NFRRSWNqZElBTjBDMzNGZFE4eFVaTXNIV3BrNTJDZVFBVGJQTWxRMjRhS1lBSVE?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.2s">
+            <div class="item-header">
+                <span class="source">UNITED24 Media</span>
+                <span class="date">Yesterday</span>
+            </div>
+            <h3 class="item-title">NATO–Ukraine AI Forecasts Russian Drone Threats 24 Hours Ahead, 50 Kilometers Behind Front - UNITED24 Media</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Ukraine</span><span class="tag">EU Policy</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxQRUdIMi1VLUcwMUFaU3JKRHZ5a2dRSVV1WXdSRjcxaDIyTkdUbl80eUd3WmdnX2NjcDVmT2ZQVEpneWszV0ZlaTFaWWs1UllteUlQLWhJeVpLM0hieUQ1Wk5tTXU3NWstRTF5VW5SckhoVlByb3NzLWQyeUloQ25zY2x3MGQ5ZWc3TjRWQTVnWi1rZ205aXlqZEFHSWZZSWc?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.24s">
+            <div class="item-header">
+                <span class="source">Rochester Institute of Technology</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">RIT AI grad student&#x27;s space defense startup acquired by CesiumAstro - Rochester Institute of Technology</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">AI / Autonomy</span><span class="tag">Space</span><span class="tag">Startup</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxPaG4xUG1oMTNVNHBuYjFqckV6V2NfWEgtZ0lJcGNvQm9EcWRyelUzbnRlcEdxbVhFUjBEdWJrRUF5MFJOQWJjcVYxLThZUktyYzByeVBFMS1ZdEZZekJTNzJ2bU0wek4tQnlTX2tuX0JqVm0tUXVNRjkxZnNPNVlVbXk4TXVwbnJad0NHVGhaNlNQcTl6N3lSNllxZWZ4WU9sY29ZMzFZNmhCRzhYbFRBU1dMejNaQktodGJRUV9aVE9NZHNJU3RWNWF3cFIwZ3lJbmx1VzNFcFVUSEg5?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.28s">
+            <div class="item-header">
+                <span class="source">Business Insider Africa</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">NATO&#x27;s drone-predicting AI gives Ukrainian commanders a glimpse into Russia&#x27;s next moves on the front line - Business Insider Africa</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Ukraine</span><span class="tag">EU Policy</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxNLUZvM0hLcVZEaDZIUFpjTnk1ZmxPakVXeFNvZ284SS01RDNjaExULVNFcHZ4cVBHNHdwRS1qb3ZPaWprSElBeWt3eW5PbUtFVkRrbWc5Y29ZbF9FYVp4VWg4Q2VKQTJWdXR6bTNIcTdsS2p6d0h3ZjZLWkU5WTdQMW9LejBqdXFqbFhkRWJWYUhTaldZa3JEUU11XzNUSGVMQVJORUw4c1R0U3NmdVg1VEI4TjJvd3JRU2NSdEpBVUg?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.32s">
+            <div class="item-header">
+                <span class="source">Kalkine Media</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">Could MDA Space’s Defence Unit Expand Canada-Ukraine Counter-Drone Cooperation? - Kalkine Media</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">Space</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMiqgJBVV95cUxNVGVFMjZfaEhiUjZzRGNIX3U4R3FLTllkLWZzYzZwMzZXN3RYQmVoeG5LaWVIbG9JZXc2ZHdFRlA5cGNnRGR4ZnpGYzRCcHQxYVc2aHdJMk9yVkZ2ZFNNdEFEbXFIYjZYRjhua1k5SzNaamdjeHlFVTRRZ2FWYjJqR25aeWMtOURsMmh2S2JuajNOaTRmTzJsZUplMHEyenlJVGFSNzAxdnZIM1h3TjB4b0o2NHAzeld2b1F1V3htcFdtUG0tcWdFemZqdElVWTZBeHV5ck9rQ1VzMDNfQ2VlR2ljY1p4N1JWUHFxV3FOMWltaE5telRsZ1dtTXZialcwMzFTZmQtd2JETk10TlVQR1c1bUc4a3BTOEVyZ2dVVEl0WUFZRjBhUDl3?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.36s">
+            <div class="item-header">
+                <span class="source">GlobeNewswire</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">Concurrent Technologies Corporation Secures Nearly $2 Million DARPA Contract to Enhance AI Assurance in Military Autonomous Systems - GlobeNewswire</h3>
+            <div class="tags"><span class="tag">US</span><span class="tag">Regulation</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNUjhVb1Zqa0dTM0xoVVpoYTFKYjRwSmRVdEF1MHR6LUlQeDREV0lCUjJQOFQ4NjNoelpwVmVFSG1UUDNHSzQ0YTVRRmJnNTViSXVLdmx6Ti14eFpZNTFtci0weXUyTVA5dmpFRTg2RjRudUpPOFEtYmdROVF5cGRpN29UdXhicXVWb29jcGVoVEtkSFlmYi1YS3RjdWM4T0E?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.4s">
+            <div class="item-header">
+                <span class="source">SpaceNews</span>
+                <span class="date">3d ago</span>
+            </div>
+            <h3 class="item-title">Ukrainian startup, GomSpace test satellite for future communications network - SpaceNews</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">Space</span><span class="tag">Startup</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOM1Z0UmVOR29vTExMVndhbW9hQVc3eEduVnlIRmxvbVRoN3VsZ2hObWFWSE5zS01DZ01IX21HNk9QRjVGRDg1ZmJBY2RJeXpfeEVmbnRaZ3ZnQUxtb1dYSmZkblVyVDhUbUJEUmkyNEFUcktSYlN6cE1SVjEzMGFlY2lwa1ZfNFd3SkVKY1NqNWlENklCMmJlVGdCd3gwcVJ5SnhMMFV4bjBmWGY2SW9ocUdPNWZlQlcyREJJc1JvX0xqUQ?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.44s">
+            <div class="item-header">
+                <span class="source">Investing.com Nigeria</span>
+                <span class="date">3d ago</span>
+            </div>
+            <h3 class="item-title">49North signs MOU with Ukraine’s UNWAVE for counter-drone systems By Investing.com - Investing.com Nigeria</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPYVFhZWFWR05ycHJVT1Q2MHdXeXdSZWtaRC02XzBPSW1VUkIya0ZCdjlvMnBYbHN3WGRkaHI0OGR2WVhocEdaUFN6RHh5ZjBVZVg2cUs2V19CaWp3bFBPTUNpNU43UUpyeXotdUJMLWRwY2RpS1FkSmkyMEpBSWhmdVlCX1U3MEszaDRXNGNzbE52dWE3MVowYk5RTnEtZV8yVGxrQTlKLUZBNnluYnBDT0RzOERLc0lWNlloMFI4cWxwYzJZWUE?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.48s">
+            <div class="item-header">
+                <span class="source">UNITED24 Media</span>
+                <span class="date">4d ago</span>
+            </div>
+            <h3 class="item-title">Sky Sentinel Goes Mobile—Ukraine Mounts AI Anti-Drone Turret on Military Vehicle - UNITED24 Media</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Ukraine</span><span class="tag">Regulation</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPRm9IQS16OFhxbVlNa2Q0RFA3dk5zZldGUkRjNFBaeFk2U0s5WHpzdllWLWpTenZvdVRuTV82akpUblNYQUJjNVd4T0pqd3RYNXlqbWhKSUJET283MDVWRkptUEZleVJOb1VfWDJzM283YjlhZ18zbDBHdDNkdzNzTjdvam5PTmJoWkpoVklhc3YwRjZfSXRLWmtIbGVPUHds?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.52s">
+            <div class="item-header">
+                <span class="source">Цензор.НЕТ</span>
+                <span class="date">4d ago</span>
+            </div>
+            <h3 class="item-title">FPV drones, middle strike and deep strike: Ukraine and EU discussed defense funding for 2027 - Цензор.НЕТ</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">EU Policy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxNcTN5Z2RoVlMxUlZzTGo1RmVaTUp1MG5NckZuX0NrN1NGVy1WMHhVNTMzVUYwbmtXNEZWNmpmalNkQUQzVnIycjh2czlxZE10aGcwYlVPcThFZEV6eHp1Wk91anJBTjkyTk1WODRicjFvcXNJQzhydWFTcEJQam5RaXpiczIwMGtCV3JUU2k0b1ZiM2hhdXlKcEw0RlJWRFl0STdvY0FtMDhpVnI4RkhvczJFbjUyclJyX2RBeDhBRjdsaXpuQzRsa0pfSURzQ2kydjNMbGxmOTVKZw?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.56s">
+            <div class="item-header">
+                <span class="source">Military Embedded Systems</span>
+                <span class="date">2w ago</span>
+            </div>
+            <h3 class="item-title">Pentagon seeking $50 billion autonomous warfare investment to expand U.S. military drone production - Military Embedded Systems</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">US</span><span class="tag">Regulation</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+  </div>
+</div>
+</body>
+</html>
