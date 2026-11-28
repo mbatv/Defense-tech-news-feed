@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Defense Tech × Capital Signals</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111113;
+    --surface-hover: #18181b;
+    --border: #1e1e22;
+    --border-hover: #2a2a30;
+    --text-primary: #e4e4e7;
+    --text-secondary: #71717a;
+    --text-muted: #52525b;
+    --accent: #c8aa6e;
+    --accent-dim: rgba(200, 170, 110, 0.08);
+    --accent-border: rgba(200, 170, 110, 0.15);
+    --tag-bg: #1a1a1f;
+    --tag-text: #8b8b96;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 28px 20px 40px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .header-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .header-meta span {
+    margin-right: 12px;
+  }
+
+  .geo-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .geo-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .feed {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 0;
+  }
+
+  .item:hover {
+    background: var(--surface);
+    border-color: var(--border);
+  }
+
+  .item:hover .item-title {
+    color: #fff;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+  }
+
+  .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .item-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--text-primary);
+    transition: color 0.15s ease;
+    margin-bottom: 8px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: var(--tag-text);
+    background: var(--tag-bg);
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+  }
+
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Notion embed optimization */
+  @media (max-width: 500px) {
+    .container { padding: 16px 12px 32px; }
+    .item { padding: 12px; }
+    .item-title { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-title">Defense Tech × Capital Signals</div>
+    <div class="header-meta">
+      <span>Last 60 days</span>
+      <span>·</span>
+      <span>15 items</span>
+      <span>·</span>
+      <span>updated Nov 28, 01:01 UTC</span>
+    </div>
+    <div class="geo-tags">
+      <span class="geo-tag">UK</span>
+      <span class="geo-tag">EU</span>
+      <span class="geo-tag">US</span>
+      <span class="geo-tag">Ukraine</span>
+    </div>
+  </div>
+
+  <div class="feed">
+    
+        <a href="https://news.google.com/rss/articles/CBMiS0FVX3lxTE9DSlVJUEIxYlAxZDZIOEFoT0RpTXYyOW1FbTVwdzZHTjNzak8zM21PTjZHLVFHMlA3UlpFSWhvY1ozUVhyQ0hFN0h5UQ?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.0s">
+            <div class="item-header">
+                <span class="source">Kyiv Post</span>
+                <span class="date">18h ago</span>
+            </div>
+            <h3 class="item-title">British-Ukrainian Defense Tech Startup Pai Defence Raises $5M for Drone Detection System - Kyiv Post</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">UK</span><span class="tag">Startup</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE5BYzJ1RGZyLTdZN1RrY1FkMmVVN0szTWNoTjhxQnd1RmJ0dUFKSzk5V1ppQnZDQWRZSlRySGNITWEzX2VmY0ZKUWhzWm9IUFQxeDh1bkgzUEUtUDhCdDk3U1UzTERsQmhJZzBkWkJzY19sWHVJ0gF6QVVfeXFMT0Q0aHhEOFg3TWZ2OV80NVBLX1g5V1ZTOW44YnQzcWJNSXJ3NDdORGY5MVNGdlZiVDl5UTdyV2VJUmtEYVY2SklreGRoVk5zQXNlVnZXZ3VCYXJ5REV1X01xZUtTM3YxRmgyLUU0WnpFVTlBYk85c1U1Tnc?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.04s">
+            <div class="item-header">
+                <span class="source">The Defense Post</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">Ukraine, Germany Plan to Build Thousands of Recon Drones in 2027 - The Defense Post</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Ukraine</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMizwFBVV95cUxPY2Fvczdlbi1aRXFqTFNVTnloOWp4VUxKalZrMXo1NVVYMFdOSzBvTFktZEFfRnVhZy1Wb2ZEYWVOQjlEZmhGcDhiR2xURzU3emFEdkVUQmp0VU8xRDE1RUFHV3FSbWhwMkRyczByNnA4SG9IMXVzbUlvSTAzQkhLOTgyZlNpU2w1a1ZUSmU5cElnRmRlU0JwbGNMbHFBeENwUFNkZEpVOUw4WGhnNTh5MVdOWmVKX3NmT3pEMExRTklWSDYyaEJSbFZCSXp5RDg?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.08s">
+            <div class="item-header">
+                <span class="source">Мілітарний</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">Victoria VC and Militarnyi Team Up to Bring Ukraine’s Defense-Tech Story to Silicon Valley - Мілітарний</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">Regulation</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxNYlJ3bTA3dEdMVEgtOG8zREF1UXRmeHFXYmNvZldwemdFUV9LSzNxS2pPVUpTSmc5NzZHdFVIV05odGNJc2NOUlNuNXBXa0xmaDVkeWQ5MUwzaVZrMFZSOC1YRHFCX1lmdm14OEIycFM0UUgxOVBTT0FDM3ptWGlRQndmTHpqQU1QV3Z0d1lJNWd2WmI4MkR2SkUyVzQxYk55a2JLTGRyY1BUZGdPVC05VWUtZ200MGc2anFGRmQxTWRpajVTeDFiVFM3dnFnN3VJQUI3NmN3MDM?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.12s">
+            <div class="item-header">
+                <span class="source">Мілітарний</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">Ukrainian-British Startup Pai Defence Raises $5 Million to Expand Drone Detection Network Along the Front Line - Мілітарний</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">UK</span><span class="tag">Startup</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMi5AFBVV95cUxPUi1FMDM5UkVVRDlfaE1BWl9fRzVnN1YxX3pxbDl5OTBkQUVfUXhKY0MydkVCXzFqUUswM1JOalczR3c4djBCcDZZVFRyNWpMZTFxMDR4emtwbUxjaG4xMDJwR0NmYXFOZ05SWllVakthUjVncnc5SVRtNjBMendZVjhyNkJPM1VBeUl0UEhkVkI3WTlvS3FuSVZ4Z19DVWFRZF84dkNMUUFwSlUxRkhUOXA3Z1poc0cwTWxodjZWVUlXaFdPSE9sdGI3OGpLZzViYWxrWHN6N1JoNmJXLXl2X1Nib3Q?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.16s">
+            <div class="item-header">
+                <span class="source">Tech Times</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">Ukraine AI Interceptor Drones: Zelensky Says Two Dozen Firms Build Them; 100-Plus Train on Same Data - Tech Times</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Ukraine</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPM3BnSVdrUXUyZDU1UmxQcGNreHgzbjVuNEhiOE1CTVBrbjFvWG5hVG5hNEF6VGZYdmxEc3JyNEJUNW1Kd2RlSzMyNFVJUW9obm5SM0RPd3ZoNDF4ZkQ3Y0dFYkM0YW5XWXB4TkNJUU9WVF8tSDhtejlJTVM5bDVXMWt3YUp6eDE2aHhvaHJwakJibW9MRkE?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.2s">
+            <div class="item-header">
+                <span class="source">Military.com</span>
+                <span class="date">2d ago</span>
+            </div>
+            <h3 class="item-title">GPS Jammed? This AI Software Could Keep Military Drones on Course Using Sensors They Already Carry - Military.com</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Regulation</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNYlc3SVc0alVlWjlZcmR2VHJ0T0Y5bGJnbmdIeUhvOExKSXEyVXdiMlNNdmNIUG9OaC1jYS1FMndEZ21JWlpFckV6N0F2eFphTmN6akR6VWF0ZXFRR0ZqdmtJcDJ6UjF4b2J0SFBkdGg4ZUpUdG45Zm9kVWxQOEs1VnFjS19YX1A0b0VJZmlOLVloTkM2YWfSAZ4BQVVfeXFMTVU2Smd4QlJrcGd4b0tyZnpRcnBXTDMwX0duZTlsSzA3Zjc2dFlBenlxZmQtMkd5bGh3V0hKcUwwdWRGRmoxSm9GQUhjTHlpMlRqRlNMM0NDUkQtdE5zV3hLMlFVQ2pqV21zbjFyUFVoSENiODVoaXJHdTdjVVhXSmg0cUtNc0ZFTVdvX0RGOHJIOVlsc2xlYkFNZ0NEZHc?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.24s">
+            <div class="item-header">
+                <span class="source">Ukraine Business News</span>
+                <span class="date">3d ago</span>
+            </div>
+            <h3 class="item-title">Pai Defence Raises $5M to Expand AI Drone Detection on Ukraine’s Front Line. - Ukraine Business News</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNa0lud0l2SnNuQ1VJT0RMbTdaZW45NzI5UWQ0R19OUVRXWUJ3MjY3T3lpVUk3OFEtQ2xueUJNWGxidVhPTDFaZmxld1BVM1lfejdEOTFRQkotLXQ3eHdkODJNM3phTjdSMkJoRVdFMjdrS09iRm5DM2R4b1NZX21YTkwtQVNicHhpMDFVOERjZXpIZGJMRWlaSVA0ZE9tUXU1TVZZUA?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.28s">
+            <div class="item-header">
+                <span class="source">The Kyiv Independent</span>
+                <span class="date">3d ago</span>
+            </div>
+            <h3 class="item-title">AI to predict Russian drone flight paths attracts $5 million in investment - The Kyiv Independent</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1KeTdpSGNwT0h4UW03TFRiRTg2NXFIWVRHTFZMTG9FX3h3U1R0MXVkdnA5bzkyZHg2Z3E4eEZaNU04RnFscmVQUUNScUl0bW5nUFhnNG9oYW9IVng5SEdQSUpaZzdBa1MzeGdqSQ?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.32s">
+            <div class="item-header">
+                <span class="source">dev.ua</span>
+                <span class="date">3d ago</span>
+            </div>
+            <h3 class="item-title">Ukrainian startup Pai Defence comes out of stealth and raises $5 million for a system that detects drones with passive sensors - dev.ua</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">Startup</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxNckZqY1ExZWVNUHNLRTRvdnM1cWZ3bGFqX2NCYjFnTFZ6eHRHTy1NMjFuOEVVX3dheUxULTRDZEt0U1FUd0hTS185M0FEWEZkajZ1bUdULUxwWHFTazFlMVpzVFN2SEFCNWhveVRTdnJfbERMX01QdnRoemdELWxGdjhBcnhjZ0E0SjBoSTBVaWxXWWhfYWQ0bnp0ZFZSdk9jd3pWaENVNldvdHVmQXFuZWwwdWJ6MEh6WjdDN0haZ0JtRHZDLVdJ?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.36s">
+            <div class="item-header">
+                <span class="source">The Register</span>
+                <span class="date">3d ago</span>
+            </div>
+            <h3 class="item-title">UK gov invests in defense startup making virtual training ground for AI - The Register</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">UK</span><span class="tag">AI / Autonomy</span><span class="tag">Startup</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxNbV9pVVJjcDRtZkFpdzlRWmRZekdESlNIS2M4Y294bjl1Y3Q0Y2F1U0hEbk9IUGlCUmROdEJjWlgwaEdoc0hwZWt2aXJTNzQzS3B3V2Y0cnNoUm45czJrT01zX2pfdUF1aGtBU0dheUpGYWZXZmZhdGJ0a3dhalgySlA2RlEwMk9qRHhfWEd3amRIWkxaaUF5V0ZUM2RNRUsxdE5MYWhiUVpvRm9lLTJ2a1IwN3RfZlVtQ3p4aklrT3hid192ZVd1UnRieGc4bldZNkpId2ZQTkhndw?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.4s">
+            <div class="item-header">
+                <span class="source">AI Insider</span>
+                <span class="date">4d ago</span>
+            </div>
+            <h3 class="item-title">European Defense AI Company Agon Raises $70M in Series A Funding to Develop Autonomous Systems Technology - AI Insider</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">EU Policy</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNZnRXZnFianQzakFTS1d0MGhrYWlhV3BscktVUE15eWx6WmVmWG85OEZCbDJaVHBaMkxaMlBfd09LMTgzSjZOZXp6R3BkaURreUh6bWZGWTF6NVRYSG9STWo4allfc2tLamhUNWh3ejIybmNYZklaeGR0SjVNd3NrQ0ZQbFhqN1hOMDhjbkpuWWZDTExOaHVQbzdESHE?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.44s">
+            <div class="item-header">
+                <span class="source">MLQ.ai</span>
+                <span class="date">4d ago</span>
+            </div>
+            <h3 class="item-title">London defense AI startup Agon raises $70 million at a $450 million valuation - MLQ.ai</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">UK</span><span class="tag">AI / Autonomy</span><span class="tag">Startup</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMiREFVX3lxTFB6dFJSek9sYzZSSEd5emp5Mnp5cGxzMUs5cm45NjN2SW1BdnhZR3RYYjJjZWVLSWdtZ01IaWhpQXZROTNq?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.48s">
+            <div class="item-header">
+                <span class="source">Digg</span>
+                <span class="date">4d ago</span>
+            </div>
+            <h3 class="item-title">UK backs Agon’s $70M military AI round, but won’t name its own contribution - Digg</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">UK</span><span class="tag">Regulation</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxQMVd0d1pIejRXSFZEaGNMclpnTFg1ZlJFeUtSR3BVNGR2N1NYQUF5OEt3cm8yRVB0clJ5NjltRHZnaGRjck1LX2RWTXlYbm8xblpXN21CMjRmRG5ESHZSRXE2R1NpcnRnUDdqT0ktU3UwcG5xWXBrNmxTcXBQeEZrUU1Bemg1TlNLNXNDcjhfbkh5WmpDWFVyeVJpdG5QYjZ6MC11NGI2TkF2TzlhaE5XZFlkdDhaYkxxc2JtOV9GczB1SVZqdzN0RGVRYjdqUjVJOWVCcFZRVmVSRFk?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.52s">
+            <div class="item-header">
+                <span class="source">GOV.UK</span>
+                <span class="date">4d ago</span>
+            </div>
+            <h3 class="item-title">Sovereign AI and National Security Strategic Investment Fund backing British autonomous defence systems firm - GOV.UK</h3>
+            <div class="tags"><span class="tag">Investment</span><span class="tag">UK</span><span class="tag">US</span><span class="tag">AI / Autonomy</span></div>
+        </a>
+        <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPOVY3WkZZalE2ZVpGRUNRajg1QW9rZWpSZ0xjQ3kyM0NQR1NrUHlwMHlaR291eGZ3QkFfaHpGaXVwQlFqWmRKejJUR21lNUNVenhZbVVhU3hBWlYzOWtMeU12YVUwQ2lFcGpWdy1GblBYZDMyZG1PaldpZDZmUUppaDNxNHppd9IBiwFBVV95cUxQVVg3M3FHTXlWTFZkYUU2NnZOVDB2MDdUMkx6dmlWM2tuMjZMXzA5V3N2TkN5dVAxNzY4Y05sRHFZaUV4ZVF1dzh4SFVYNlBpWHpob1ZFUmJ6bnZ3LUZuSC1jQXowVGc4Q0d0VUFRaUQ4RjFsZHNMR3RQQmxjWDhRN0l0dWNmQkU1d0Zz?oc=5" target="_blank" rel="noopener" class="item" style="animation-delay: 0.56s">
+            <div class="item-header">
+                <span class="source">CNBC</span>
+                <span class="date">2w ago</span>
+            </div>
+            <h3 class="item-title">Ukrainian defense tech startup hits $6 billion valuation as investors bet on battle-tested drones - CNBC</h3>
+            <div class="tags"><span class="tag">UAV / Drones</span><span class="tag">Investment</span><span class="tag">Ukraine</span><span class="tag">Startup</span></div>
+        </a>
+  </div>
+</div>
+</body>
+</html>
